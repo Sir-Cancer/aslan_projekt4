@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Doodler</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+    <div class="field">
+        <canvas id="canvas"></canvas>
+            <div class="tools">
+                <button onclick="undo_last()" type="button" class="button">Undo</button>
+                <button onclick="clear_canvas()" type="button" class="button">Clear</button>
+
+                <div onclick="change_color(this)" class="color-field" style="background: black"></div>
+                <div onclick="change_color(this)" class="color-field" style="background: white"></div>
+                <div onclick="change_color(this)" class="color-field" style="background: saddlebrown"></div>
+                <div onclick="change_color(this)" class="color-field" style="background: red"></div>
+                <div onclick="change_color(this)" class="color-field" style="background: orange"></div>
+                <div onclick="change_color(this)" class="color-field" style="background: yellow"></div>
+                <div onclick="change_color(this)" class="color-field" style="background: green"></div>
+                <div onclick="change_color(this)" class="color-field" style="background: blue"></div>
+                <div onclick="change_color(this)" class="color-field" style="background: violet"></div>
+
+                <input oninput="draw_color = this.value" type="color" class="color-picker">
+                <input oninput= "draw_width = this.value" type="range" min="1" max="100" value="1" class="pen-range">
+
+            </div>
+    </div>
 </body>
 
-<script>src="main.js"</script>
+<script src="main.js"></script>
 </html>
