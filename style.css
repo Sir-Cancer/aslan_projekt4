@@ -11,8 +11,14 @@
       background-image: url("memphispattern.png");
       background-color: skyblue;
       background-repeat: repeat;
-      padding: 30px;
       overflow: hidden;
+  }
+
+  .field {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
   }
 
   canvas {
@@ -24,8 +30,8 @@
 
   .tools {
       display: flex;
-      justify-content: center;
-      flex-direction: row;
+      flex-direction: column;
+      order: 1;
       margin-top: 15px;
   }
 
