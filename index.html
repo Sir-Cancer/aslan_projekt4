@@ -1,45 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Doodler</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c7af5976cf.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link
-    rel="icon"
-    type="image/png"
-    href="https://icon-library.net/images/pencil-icon-flat/pencil-icon-flat-3.jpg"
-  />
-</head>
-<body>
+      rel="icon"
+      type="image/png"
+      href="https://icon-library.net/images/pencil-icon-flat/pencil-icon-flat-3.jpg"
+    />
+  </head>
+  <body>
     <div class="field">
+      <div class="canvas-cont">
+        <div class="top-bar">
+          <button
+            onclick="game_handler()"
+            type="button"
+            class="button start-game"
+          >
+            Start game
+          </button>
+        </div>
+        <div class="tools">
+          <button onclick="undo_last()" type="button" class="button">
+            <i class="fas fa-undo-alt"></i>
+          </button>
+          <button onclick="clear_canvas()" type="button" class="button">
+            <i class="fas fa-trash"></i>
+          </button>
+          <input
+            oninput="draw_width = this.value"
+            type="range"
+            min="1"
+            max="100"
+            value="1"
+            class="pen-range"
+          />
+
+          <div
+            onclick="change_color(this)"
+            class="color-field"
+            style="background: black"
+          ></div>
+          <div
+            onclick="change_color(this)"
+            class="color-field"
+            style="background: white"
+          ></div>
+          <div
+            onclick="change_color(this)"
+            class="color-field"
+            style="background: saddlebrown"
+          ></div>
+          <div
+            onclick="change_color(this)"
+            class="color-field"
+            style="background: red"
+          ></div>
+          <div
+            onclick="change_color(this)"
+            class="color-field"
+            style="background: orange"
+          ></div>
+          <div
+            onclick="change_color(this)"
+            class="color-field"
+            style="background: yellow"
+          ></div>
+          <div
+            onclick="change_color(this)"
+            class="color-field"
+            style="background: green"
+          ></div>
+          <div
+            onclick="change_color(this)"
+            class="color-field"
+            style="background: blue"
+          ></div>
+          <div
+            onclick="change_color(this)"
+            class="color-field"
+            style="background: violet"
+          ></div>
+
+          <input
+            oninput="draw_color = this.value"
+            type="color"
+            class="color-picker"
+          />
+        </div>
         <canvas id="canvas"></canvas>
-            <div class="tools">
-                <button onclick="game_handler()" type="button" class="button start-game">Start game</button>
-                <button onclick="undo_last()" type="button" class="button">Undo</button>
-                <button onclick="clear_canvas()" type="button" class="button">Clear</button>
-
-                <div onclick="change_color(this)" class="color-field" style="background: black"></div>
-                <div onclick="change_color(this)" class="color-field" style="background: white"></div>
-                <div onclick="change_color(this)" class="color-field" style="background: saddlebrown"></div>
-                <div onclick="change_color(this)" class="color-field" style="background: red"></div>
-                <div onclick="change_color(this)" class="color-field" style="background: orange"></div>
-                <div onclick="change_color(this)" class="color-field" style="background: yellow"></div>
-                <div onclick="change_color(this)" class="color-field" style="background: green"></div>
-                <div onclick="change_color(this)" class="color-field" style="background: blue"></div>
-                <div onclick="change_color(this)" class="color-field" style="background: violet"></div>
-
-                <input oninput="draw_color = this.value" type="color" class="color-picker">
-                <input oninput= "draw_width = this.value" type="range" min="1" max="100" value="1" class="pen-range">
-
-            </div>
+      </div>
     </div>
-</body>
+  </body>
 
-<script src="main.js"></script>
+  <script src="main.js"></script>
 </html>

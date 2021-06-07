@@ -1,81 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-      font-family: 'Patrick Hand', cursive;
-      background-image: url("memphispattern.png");
-      background-color: skyblue;
-      background-repeat: repeat;
-      overflow: hidden;
-  }
-
-  .field {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-  }
-
-  canvas {
-      box-shadow: -3px 2px 9px 6px gray;
-      cursor: pointer;
-      background-color: white;
-      border-radius: 10px
-  }
-
-  .tools {
-      display: flex;
-      flex-direction: column;
-      order: 1;
-      margin-top: 15px;
-  }
-
-  .tools .color-field {
-      height: 40px;
-      width: 40px;
-      min-height: 40px;
-      min-width: 40px;
-      cursor: pointer;
-      display:inline-block;
-      border-radius: 50%;
-      border: 5px solid white;
-      align-self: center;
-      margin: 0 10px;
-  }
-
-  .tools .button {
-      font-family: 'Patrick Hand', cursive;
-      align-self: center;
-      width: 100px;
-      height: 40px;
-      border: 2px solid white;
-      border-radius: 5px;
-      cursor: pointer;
-      color: white;
-      background: #222;
-      font-weight: bold;
-      margin: 0 10px;
-  }
-
-  .color-picker {
-      align-self: center;
-      margin: 0 10px;
-      height: 50px;
-      border-style: none;
-      border-radius: 2px;
-      cursor: pointer;
-  }
-
-.pen-range {
-    align-self: center;
-    margin: 0 10px;
-    cursor: grabbing;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  height: 100%;
+}
+body {
+  font-family: "Patrick Hand", cursive;
+  background-image: url("memphispattern.png");
+  background-color: skyblue;
+  background-repeat: repeat;
+  overflow: hidden;
 }
 
+.field {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.canvas-cont {
+  --aspect-ratio: 16/9.5;
+  --height: min(min(60vh, 50vw), 50vw);
+  position: relative;
+  height: calc(var(--height));
+  width: calc(var(--height) * var(--aspect-ratio));
+}
+canvas {
+  box-shadow: -3px 2px 9px 6px gray;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 10px;
+}
 
+.tools {
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  transform: translateX(-100%) translateY(-50%);
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 1200px) {
+  .tools {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+    grid-template-rows: repeat(2, 60px);
+  }
+}
+@media screen and (max-width: 1000px) {
+  .tools {
+    grid-template-columns: repeat(5, auto);
+  }
+}
+@media screen and (max-width: 720px) {
+  .tools {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(5, 60px);
+  }
+}
 
+.top-bar {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+}
+
+.tools .color-field {
+  height: 40px;
+  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 50%;
+  border: 5px solid white;
+  align-self: center;
+  margin: 0 10px;
+}
+
+.tools .button,
+.top-bar .button {
+  font-family: "Patrick Hand", cursive;
+  font-size: large;
+  align-self: center;
+  width: 100px;
+  height: 40px;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background: #222;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.color-picker {
+  align-self: center;
+  margin: 0 10px;
+  height: 40px;
+  background-image: -webkit-linear-gradient(red, green, blue);
+  border-style: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.pen-range {
+  align-self: center;
+  margin: 0 10px;
+  cursor: grabbing;
+}
