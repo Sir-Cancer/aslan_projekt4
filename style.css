@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,16 +7,19 @@
   }
 
   body {
-      margin: 0px;
+      font-family: 'Patrick Hand', cursive;
+      background-image: url("memphispattern.png");
+      background-color: skyblue;
+      background-repeat: repeat;
       padding: 30px;
       overflow: hidden;
-      background: #313131;
   }
 
   canvas {
-      box-shadow: -3px 2px 9px 6px black;
+      box-shadow: -3px 2px 9px 6px gray;
       cursor: pointer;
       background-color: white;
+      border-radius: 10px
   }
 
   .tools {
@@ -32,7 +37,7 @@
       cursor: pointer;
       display:inline-block;
       border-radius: 50%;
-      border: 2px solid white;
+      border: 5px solid white;
       align-self: center;
       margin: 0 10px;
   }
@@ -52,11 +57,15 @@
   .color-picker {
       align-self: center;
       margin: 0 10px;
-      height: 50px;      
+      height: 50px;
+      border-style: none;
+      border-radius: 2px;
   }
 
 .pen-range {
     align-self: center;
     margin: 0 10px;
 }
+
+
 

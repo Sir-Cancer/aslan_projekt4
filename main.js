@@ -79,3 +79,57 @@ function undo_last() {
     }
 
 }
+
+const randomWords = list => sampleSize => {
+    const nonReferenceList = JSON.parse(JSON.stringify(list));
+
+    return new Array(sampleSize).fill().map(v => {
+        return nonReferenceList.splice(~~(Math.random() * nonReferenceList.length), 1);
+    });
+}
+
+async function start_game() {
+    await swal({
+        title: "You will soon be given a prompt",
+        text: "Click 'OK' once the guesser has shut their eyes.",
+    });
+
+    const words = randomWords([
+        "tiger",
+        "toaster",
+        "jigglypuff",
+        "computer",
+        "snail",
+        "loser",
+        "banana",
+        "turtle",
+        "mountain",
+        "clock",
+        "frog",
+        "moon",
+        "robot",
+        "coronavirus",
+        "kitchen"
+    ])(3);
+
+    const value = await swal({
+        title: "Pick a word to draw:",
+        text: "Make sure the guesser doesn't see what you pick.",
+        buttons: words.reduce((t, [c], i) => {
+            return {
+                ...t,
+                ["button" + i]: {
+                    text: c,
+                    value: c.toLowerCase()
+                }
+            }
+        }, {})
+    });
+
+    console.log("Player picked: " + value)
+
+    await swal({
+        icon: "success",
+        text: "The guesser can now open their eyes and you can start drawing.",
+    })
+}
