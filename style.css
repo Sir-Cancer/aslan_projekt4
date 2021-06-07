@@ -43,10 +43,12 @@
   }
 
   .tools .button {
+      font-family: 'Patrick Hand', cursive;
       align-self: center;
       width: 100px;
       height: 40px;
       border: 2px solid white;
+      border-radius: 5px;
       cursor: pointer;
       color: white;
       background: #222;
@@ -60,11 +62,13 @@
       height: 50px;
       border-style: none;
       border-radius: 2px;
+      cursor: pointer;
   }
 
 .pen-range {
     align-self: center;
     margin: 0 10px;
+    cursor: grabbing;
 }
 
 

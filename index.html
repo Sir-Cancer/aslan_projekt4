@@ -10,12 +10,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link
+    rel="icon"
+    type="image/png"
+    href="https://icon-library.net/images/pencil-icon-flat/pencil-icon-flat-3.jpg"
+  />
 </head>
 <body>
     <div class="field">
         <canvas id="canvas"></canvas>
             <div class="tools">
-                <button onclick="start_game()" type="button" class="button">Start game</button>
+                <button onclick="game_handler()" type="button" class="button start-game">Start game</button>
                 <button onclick="undo_last()" type="button" class="button">Undo</button>
                 <button onclick="clear_canvas()" type="button" class="button">Clear</button>
 

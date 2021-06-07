@@ -13,6 +13,7 @@ let is_drawing = false;
 
 let restore_array = [];
 let index = -1;
+let game_in_session = false;
 
 function change_color(element) {
     draw_color = element.style.background;
@@ -63,9 +64,8 @@ function stop(event) {
 function clear_canvas() {
     context.fillStyle = start_background_color;
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillRect(0, 0, canvas.width, canvas.height);
 
-    restore_arrat = [];
+    restore_array = [];
     index = -1;
 }
 
@@ -86,6 +86,37 @@ const randomWords = list => sampleSize => {
     return new Array(sampleSize).fill().map(v => {
         return nonReferenceList.splice(~~(Math.random() * nonReferenceList.length), 1);
     });
+}
+
+async function game_handler() {
+    const btn = document.querySelector(".start-game");
+    if (!game_in_session) {
+        game_in_session = true;
+        btn.innerText = "End round";
+        start_game();
+    } else {
+        game_in_session = false;
+        const willContinue = await swal({
+            buttons: {
+                button1: {
+                    text: "Continue playing",
+                    value: true
+                },
+                button2: {
+                    text: "End game",
+                    value: false
+                }
+            }
+        });
+
+        if (willContinue) {
+            start_game();
+            clear_canvas();
+            game_in_session = true;
+        } else {
+            window.location.reload();
+        }
+    }
 }
 
 async function start_game() {
